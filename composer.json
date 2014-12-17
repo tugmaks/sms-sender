@@ -11,7 +11,9 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
         "ask/xml-builder": "dev-master"
     },
     "autoload": {

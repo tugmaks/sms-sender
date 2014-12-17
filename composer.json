@@ -12,7 +12,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "maniaplanet/manialib-xml": "0.2.*@dev"
+        "maniaplanet/manialib-xml": "*"
     },
     "autoload": {
         "psr-4": {

@@ -13,6 +13,7 @@
     "require": {
         "ask/xml-builder": "dev-master"
     },
+    
     "autoload": {
         "psr-4": {
             "tugmaks\\SMS\\": ""

@@ -16,7 +16,7 @@ php composer.phar require --prefer-dist tugmaks/sms-sender "*"
 or add
 
 ```
-"tugmaks/SMS": "*"
+"tugmaks/sms-sender": "*"
 ```
 
 to the require section of your `composer.json` file.

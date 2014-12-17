@@ -2,7 +2,7 @@
 
 namespace tugmaks\SMS\core;
 
-use ASK\XmlBuilder;
+use ASK\XmlBuilder\XmlBuilder;
 
 /**
  * Description of ItakazanAbstract

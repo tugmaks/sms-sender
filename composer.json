@@ -1,0 +1,21 @@
+{
+    "name": "tugmaks/sms-sender",
+    "description": "SMS sender library",
+    "type": "library",
+    "keywords": [""],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maxim Tugaev",
+            "email": "tugmaks@yandex.ru"
+        }
+    ],
+    "require": {
+        "ask/xml-builder": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "tugmaks\\SMS\\": ""
+        }
+    }
+}

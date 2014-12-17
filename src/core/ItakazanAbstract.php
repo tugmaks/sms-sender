@@ -112,7 +112,7 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
 
         $xmlBuilder->element('data')->reference($params)->end();
         $params->element('login', $this->login)->end();
-        $params->element('password', $this->password)->end();
+        $params->element('pass', $this->password)->end();
         $params->element('mac', $this->mac)->end();
         foreach ($data as $key => $value) {
             $params->element($key, $value)->end();

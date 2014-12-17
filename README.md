@@ -7,16 +7,13 @@ Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-Either run
+
+
+Add
 
 ```
-php composer.phar require --prefer-dist tugmaks/sms-sender "*"
-```
-
-or add
-
-```
-"tugmaks/sms-sender": "*"
+"ask/xml-builder": "dev-master",
+"tugmaks/sms-sender": "dev-master"
 ```
 
 to the require section of your `composer.json` file.

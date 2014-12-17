@@ -2,7 +2,7 @@
     "name": "tugmaks/sms-sender",
     "description": "SMS sender library",
     "type": "library",
-    "keywords": ["sms sender tool"],
+    "keywords": ["sms sender tool, sms lib"],
     "license": "MIT",
     "authors": [
         {

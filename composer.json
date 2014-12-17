@@ -11,10 +11,8 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0"
-    },
-    "require-dev": {
-        "ask/xml-builder": "dev-master"
+        "php": ">=5.4.0",
+        "maniaplanet/manialib-xml": "0.2.*@dev"
     },
     "autoload": {
         "psr-4": {

@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "ask/xml-builder": "dev-master"
+        "ASK/xml-builder": "dev-master"
     },
     "autoload": {
         "psr-4": {

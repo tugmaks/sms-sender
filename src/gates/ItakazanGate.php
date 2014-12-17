@@ -25,8 +25,8 @@ class ItakazanGate extends ItakazanAbstract {
         $xml = $this->prepareXml([
             'action' => 'balance',
         ]);
-        $request = $this->request($xml);
-        return $request;
+        $response = simplexml_load_string($this->request($xml));
+        return $response->code == 1 ? $response->balance : $this->_codes[$response->code];
     }
 
     public function createSignature($signture) {

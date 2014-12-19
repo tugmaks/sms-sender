@@ -117,7 +117,7 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
         curl_close($ch);
         $response = DOMDocument::loadXML($output);
         //$code = (integer) $response->getElementsByTagName('code')->item(0)->nodeValue;
-        return $response;
+        return $output;
         // Handle the error if exists
 //        if ($code == 1) {
 //            $this->setError(null);

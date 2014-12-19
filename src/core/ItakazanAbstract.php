@@ -69,6 +69,12 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
      * @return array list of singatures or false
      */
     abstract public function getSignatures();
+    
+    /**
+     * Get price
+     * @return array price or false
+     */
+    abstract public function getPrices();
 
     /**
      * Create signature

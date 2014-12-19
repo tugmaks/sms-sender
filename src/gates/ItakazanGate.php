@@ -37,6 +37,18 @@ class ItakazanGate extends ItakazanAbstract {
         return ($response === null) ? false : $signatures;
     }
 
+    public function getPrices() {
+        $xml = $this->prepareXml([
+            'action' => 'balance',
+        ]);
+        $response = $this->request($xml);
+        $price = [];
+        foreach ($response->getElementsByTag('price')->item(0)->attributes as $name => $value) {
+            $price[$name]=$value;
+        }
+        return ($response === null) ? false : $price;
+    }
+
     public function addSignature($signture) {
         $xml = $this->prepareXml([
             'action' => 'sugnatureCreate',

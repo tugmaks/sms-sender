@@ -106,7 +106,7 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
         $response = simplexml_load_string($output);
 
         //Handle the error if exists
-        if ((integer) $response->code == 1) {
+        if ((integer) $response->code->{0} == 1) {
             $this->error = null;
             return $response;
         } else {

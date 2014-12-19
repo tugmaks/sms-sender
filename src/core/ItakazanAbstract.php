@@ -2,7 +2,6 @@
 
 namespace tugmaks\SMS\core;
 
-use ASK\XmlBuilder\XmlBuilder;
 
 /**
  * Description of ItakazanAbstract
@@ -121,18 +120,38 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
         }
     }
 
-    public function prepareXml($data) {
-        $xmlBuilder = new XmlBuilder();
+//    public function prepareXml($data) {
+//        $xmlBuilder = new XmlBuilder();
+//
+//        $xmlBuilder->element('data')->reference($params)->end();
+//        $params->element('login', $this->login)->end();
+//        $params->element('pass', $this->password)->end();
+//        $params->element('mac', $this->mac)->end();
+//        foreach ($data as $key => $value) {
+//            $params->element($key, $value)->end();
+//        }
+//
+//        return $xmlBuilder->getXml(true);
+//    }
 
-        $xmlBuilder->element('data')->reference($params)->end();
-        $params->element('login', $this->login)->end();
-        $params->element('pass', $this->password)->end();
-        $params->element('mac', $this->mac)->end();
+    public function prepareXml($data) {
+        $dom = new DOMDocument('1.0', 'UTF-8');
+        $dataNode = $dom->createElement('data');
+        $dom->appendChild($data);
+        $LoginNode = $dom->createElement('login', $this->login);
+        $dataNode->appendChild($LoginNode);
+        $PassNode = $dom->createElement('pass', $this->password);
+        $dataNode->appendChild($PassNode);
+        $MacNode = $dom->createElement('mac', $this->mac);
+        $dataNode->appendChild($MacNode);
         foreach ($data as $key => $value) {
-            $params->element($key, $value)->end();
+            $Node = $dom->createElement($key, $value);
+            $dataNode->appendChild($Node);
         }
 
-        return $xmlBuilder->getXml(true);
+        $dom->formatOutput = true;
+        $dom->preserveWhitespace = false;
+        return $dom->saveXML();
     }
 
 }

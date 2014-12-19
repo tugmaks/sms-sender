@@ -12,7 +12,6 @@ The preferred way to install this extension is through [composer](http://getcomp
 Add
 
 ```
-"ask/xml-builder": "dev-master",
 "tugmaks/sms-sender": "dev-master"
 ```
 

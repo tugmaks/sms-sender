@@ -52,7 +52,7 @@ class ItakazanGate extends ItakazanAbstract {
     public function addSignature($signature) {
         $xml = $this->prepareXml([
             'action' => 'signatureCreate',
-            'signature' => $signture,
+            'signature' => $signature,
         ]);
         $response = $this->request($xml);
         return ($response === null) ? false : true;
@@ -62,7 +62,7 @@ class ItakazanGate extends ItakazanAbstract {
     public function deleteSignature($signature) {
         $xml = $this->prepareXml([
             'action' => 'signatureDelete',
-            'signature' => $signture,
+            'signature' => $signature,
         ]);
         $response = $this->request($xml);
         return ($response === null) ? false : false;

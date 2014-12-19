@@ -22,7 +22,7 @@ class ItakazanGate extends ItakazanAbstract {
             'action' => 'balance',
         ]);
         $response = $this->request($xml);
-        return ($response === null) ? false : (float)$response->getElementsByTagName('balance')->item(0)->nodeValue;
+        return ($response === null) ? false : (float) $response->getElementsByTagName('balance')->item(0)->nodeValue;
     }
 
     public function getSignatures() {
@@ -30,7 +30,11 @@ class ItakazanGate extends ItakazanAbstract {
             'action' => 'balance',
         ]);
         $response = $this->request($xml);
-        return ($response === null) ? false :  $response;
+        $signatures = [];
+        foreach ($response->getElementsByTagName('signature') as $signature) {
+            $signatures[] = $signature->nodeValue;
+        }
+        return ($response === null) ? false : $signatures;
     }
 
     public function addSignature($signture) {

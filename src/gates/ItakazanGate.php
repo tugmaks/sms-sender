@@ -30,7 +30,7 @@ class ItakazanGate extends ItakazanAbstract {
             'action' => 'balance',
         ]);
         $response = $this->request($xml);
-        return ($response === null) ? false : (array) $response->signatures->signature;
+        return ($response === null) ? false :  $response->signatures;
     }
 
     public function addSignature($signture) {

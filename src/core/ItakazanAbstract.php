@@ -109,31 +109,18 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $output = curl_exec($ch);
         curl_close($ch);
-        $response = simplexml_load_string($output);
+        $dom = new DOMDocument();
+        $response = $dom->loadXML($output);
 
         //Handle the error if exists
         if ((integer) $response->code->{0} == 1) {
             $this->setError(null);
-            return $output;
+            return $response;
         } else {
             $this->setError($this->_codes[(integer) $response->code]);
             return null;
         }
     }
-
-//    public function prepareXml($data) {
-//        $xmlBuilder = new XmlBuilder();
-//
-//        $xmlBuilder->element('data')->reference($params)->end();
-//        $params->element('login', $this->login)->end();
-//        $params->element('pass', $this->password)->end();
-//        $params->element('mac', $this->mac)->end();
-//        foreach ($data as $key => $value) {
-//            $params->element($key, $value)->end();
-//        }
-//
-//        return $xmlBuilder->getXml(true);
-//    }
 
     public function prepareXml($data) {
         $dom = new DOMDocument('1.0', 'UTF-8');

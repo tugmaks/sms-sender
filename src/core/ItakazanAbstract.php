@@ -14,6 +14,7 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
     public $login;
     public $password;
     public $mac;
+    public $balance;
 
     /**
      *

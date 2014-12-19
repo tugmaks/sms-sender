@@ -11,22 +11,21 @@ use tugmaks\SMS\core\ItakazanAbstract;
  */
 class ItakazanGate extends ItakazanAbstract {
 
-    public $login;
-    public $password;
-    public $mac;
-
     public function __construct($params) {
         $this->login = $params['login'];
         $this->password = $params['password'];
         $this->mac = $params['mac'];
-    }
+        //Get balance
 
-    public function getBalance() {
         $xml = $this->prepareXml([
             'action' => 'balance',
         ]);
         $response = $this->request($xml);
-        return ($response === null) ? false : (float) $response->balance;
+        $this->balance = ($response === null) ? false : (float) $response->balance;
+    }
+
+    public function getBalance() {
+        return $this->balance;
     }
 
     public function addSignature($signture) {

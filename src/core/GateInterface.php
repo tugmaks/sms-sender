@@ -27,11 +27,11 @@ interface GateInterface {
      * @param mixed $error
      * @return GateInterace
      */
-    public function setGateError($error);
+    public function setError($error);
 
     /**
      * Get gate error
      * @return mixed. Gate error representation returned by service or null if no error
      */
-    public function getGateError();
+    public function getError();
 }

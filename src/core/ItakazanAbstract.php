@@ -138,7 +138,7 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
     public function prepareXml($data) {
         $dom = new DOMDocument('1.0', 'UTF-8');
         $dataNode = $dom->createElement('data');
-        $dom->appendChild($data);
+        $dom->appendChild($dataNode);
         $LoginNode = $dom->createElement('login', $this->login);
         $dataNode->appendChild($LoginNode);
         $PassNode = $dom->createElement('pass', $this->password);

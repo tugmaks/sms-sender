@@ -80,13 +80,13 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
      * Create signature
      * @return mixed true or error code
      */
-    abstract public function addSignature($signture);
+    abstract public function addSignature($signature);
 
     /**
      * Get Balance
      * @return mixed true or error code
      */
-    abstract public function deleteSignature($signture);
+    abstract public function deleteSignature($signature);
 
     /**
      * Get Balance

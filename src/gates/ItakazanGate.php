@@ -49,9 +49,9 @@ class ItakazanGate extends ItakazanAbstract {
         return ($response === null) ? false : $price;
     }
 
-    public function addSignature($signture) {
+    public function addSignature($signature) {
         $xml = $this->prepareXml([
-            'action' => 'sugnatureCreate',
+            'action' => 'signatureCreate',
             'signature' => $signture,
         ]);
         $response = $this->request($xml);
@@ -59,9 +59,9 @@ class ItakazanGate extends ItakazanAbstract {
         
     }
 
-    public function deleteSignature($signture) {
+    public function deleteSignature($signature) {
         $xml = $this->prepareXml([
-            'action' => 'sugnatureDelete',
+            'action' => 'signatureDelete',
             'signature' => $signture,
         ]);
         $response = $this->request($xml);

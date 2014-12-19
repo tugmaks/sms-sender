@@ -55,7 +55,8 @@ class ItakazanGate extends ItakazanAbstract {
             'signature' => $signture,
         ]);
         $response = $this->request($xml);
-        return ($response === null) ? false : true;
+        //return ($response === null) ? false : true;
+        return $response;
     }
 
     public function deleteSignature($signture) {

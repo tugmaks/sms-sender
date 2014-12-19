@@ -10,6 +10,7 @@ namespace tugmaks\SMS\core;
 abstract class GateBaseAbstract implements GateInterface {
 
     public $gateUrl;
+    public $error;
 
     /**
      * @inheritdoc
@@ -23,6 +24,21 @@ abstract class GateBaseAbstract implements GateInterface {
      */
     public function setGateUrl($url) {
         $this->gateUrl = $url;
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getGateError() {
+        return $this->error;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setGateError($error) {
+        $this->error = $error;
         return $this;
     }
 

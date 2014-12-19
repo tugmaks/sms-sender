@@ -25,24 +25,47 @@ class ItakazanGate extends ItakazanAbstract {
         $xml = $this->prepareXml([
             'action' => 'balance',
         ]);
-        $response = simplexml_load_string($this->request($xml));
-        return $response->code == 1 ? $response->balance : $this->_codes[$response->code];
+        $response = $this->request($xml);
+        return !$response ? $response->balance : false;
     }
 
-    public function createSignature($signture) {
-        
+    public function addSignature($signture) {
+        $xml = $this->prepareXml([
+            'action' => 'sugnatureCreate',
+            'signature' => $signture,
+        ]);
+        $response = $this->request($xml);
+        return !$response ? true : false;
     }
 
     public function deleteSignature($signture) {
-        
+        $xml = $this->prepareXml([
+            'action' => 'sugnatureDelete',
+            'signature' => $signture,
+        ]);
+        $response = $this->request($xml);
+        return !$response ? true : false;
     }
 
     public function getArchive() {
-        
+        $xml = $this->prepareXml([
+            'action' => 'archive',
+        ]);
+        $response = $this->request($xml);
+        return !$response ? $response->smsArchives : false;
     }
 
     public function send($text, array $phones) {
-        
+        $numbParts = ceil(count($phones) / 5000);
+        for ($i = 0; $i <= $numbParts; $i++) {
+            
+        }
+        $xml = $this->prepareXml([
+            'action' => 'smsSendSameText',
+            'unixTime' => time(),
+        ]);
+        $response = $this->request($xml);
+        return !$response ? $response->smsArchives : false;
     }
 
 }

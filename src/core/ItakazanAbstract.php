@@ -60,7 +60,7 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
 
     /**
      * Get Balance
-     * @return string
+     * @return string balance
      */
     abstract public function getBalance();
 
@@ -68,7 +68,7 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
      * Create signature
      * @return mixed true or error code
      */
-    abstract public function createSignature($signture);
+    abstract public function addSignature($signture);
 
     /**
      * Get Balance
@@ -103,8 +103,16 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $output = curl_exec($ch);
         curl_close($ch);
+        $response = simplexml_load_string($output);
 
-        return $output;
+        //Handle the error if exists
+        if ((integer) $response->code == 1) {
+            $this->error = null;
+            return $response;
+        } else {
+            $this->error = $this->_codes[(integer) $response->code];
+            return false;
+        }
     }
 
     public function prepareXml($data) {

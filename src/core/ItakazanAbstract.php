@@ -60,9 +60,15 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
 
     /**
      * Get Balance
-     * @return string balance
+     * @return string balance or false
      */
     abstract public function getBalance();
+
+    /**
+     * Get list of allowed signatures
+     * @return array list of singatures or false
+     */
+    abstract public function getSignatures();
 
     /**
      * Create signature

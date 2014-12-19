@@ -2,6 +2,7 @@
 
 namespace tugmaks\SMS\core;
 
+use DOMDocument;
 
 /**
  * Description of ItakazanAbstract

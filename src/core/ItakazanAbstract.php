@@ -126,7 +126,6 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
             $this->setError($this->_codes[$code]);
             return null;
         }
-        return $response;
     }
 
     public function prepareXml($data) {

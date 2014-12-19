@@ -111,7 +111,7 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
             return $response;
         } else {
             $this->setError($this->_codes[(integer) $response->code]);
-            return false;
+            return null;
         }
     }
 

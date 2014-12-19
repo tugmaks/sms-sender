@@ -43,8 +43,8 @@ class ItakazanGate extends ItakazanAbstract {
         ]);
         $response = $this->request($xml);
         $price = [];
-        foreach ($response->getElementsByTagName('price')->item(0)->attributes as $name => $value) {
-            $price[$name]=$value;
+        foreach ($response->getElementsByTagName('price')->item(0)->attributes as $key => $value) {
+            $price[$key]=$value->nodeValue;
         }
         return ($response === null) ? false : $price;
     }

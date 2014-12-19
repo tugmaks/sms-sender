@@ -15,17 +15,15 @@ class ItakazanGate extends ItakazanAbstract {
         $this->login = $params['login'];
         $this->password = $params['password'];
         $this->mac = $params['mac'];
-        //Get balance
+    }
 
+    public function getBalance() {
         $xml = $this->prepareXml([
             'action' => 'balance',
         ]);
         $response = $this->request($xml);
-        $this->balance = ($response === null) ? false : (float) $response->balance;
-    }
-
-    public function getBalance() {
-        return $this->balance;
+        return $response;
+        //return ($response === null) ? false : (float) $response->balance;
     }
 
     public function addSignature($signture) {
@@ -34,7 +32,7 @@ class ItakazanGate extends ItakazanAbstract {
             'signature' => $signture,
         ]);
         $response = $this->request($xml);
-        return !$response ? true : false;
+        return ($response === null) ? false : false;
     }
 
     public function deleteSignature($signture) {
@@ -43,7 +41,7 @@ class ItakazanGate extends ItakazanAbstract {
             'signature' => $signture,
         ]);
         $response = $this->request($xml);
-        return !$response ? true : false;
+        return ($response === null) ? false : false;
     }
 
     public function getArchive() {
@@ -51,7 +49,7 @@ class ItakazanGate extends ItakazanAbstract {
             'action' => 'archive',
         ]);
         $response = $this->request($xml);
-        return !$response ? $response->smsArchives : false;
+        return ($response === null) ? $response->smsArchives : false;
     }
 
     public function send($text, array $phones) {

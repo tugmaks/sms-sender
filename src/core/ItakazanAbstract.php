@@ -113,13 +113,14 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
         $response = $dom->loadXML($output);
 
         //Handle the error if exists
-        if ((integer) $response->code->{0} == 1) {
-            $this->setError(null);
-            return $response;
-        } else {
-            $this->setError($this->_codes[(integer) $response->code]);
-            return null;
-        }
+//        if ((integer) $response->code->{0} == 1) {
+//            $this->setError(null);
+//            return $response;
+//        } else {
+//            $this->setError($this->_codes[(integer) $response->code]);
+//            return null;
+//        }
+        return $response;
     }
 
     public function prepareXml($data) {

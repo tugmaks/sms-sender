@@ -30,14 +30,14 @@ abstract class GateBaseAbstract implements GateInterface {
     /**
      * @inheritdoc
      */
-    public function getGateError() {
+    public function getError() {
         return $this->error;
     }
 
     /**
      * @inheritdoc
      */
-    public function setGateError($error) {
+    public function setError($error) {
         $this->error = $error;
         return $this;
     }

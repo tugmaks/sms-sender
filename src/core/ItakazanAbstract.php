@@ -107,10 +107,10 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
 
         //Handle the error if exists
         if ((integer) $response->code->{0} == 1) {
-            $this->error = null;
+            $this->setError(null);
             return $response;
         } else {
-            $this->error = $this->_codes[(integer) $response->code];
+            $this->setError($this->_codes[(integer) $response->code]);
             return false;
         }
     }

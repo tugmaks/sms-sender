@@ -69,7 +69,7 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
      * @return array list of singatures or false
      */
     abstract public function getSignatures();
-    
+
     /**
      * Get price
      * @return array price or false
@@ -117,15 +117,15 @@ abstract class ItakazanAbstract extends GateBaseAbstract {
         curl_close($ch);
         $response = DOMDocument::loadXML($output);
         $code = (integer) $response->getElementsByTagName('code')->item(0)->nodeValue;
-
+        return $response;
         // Handle the error if exists
-        if ($code == 1) {
-            $this->setError(null);
-            return $response;
-        } else {
-            $this->setError($this->_codes[$code]);
-            return null;
-        }
+//        if ($code == 1) {
+//            $this->setError(null);
+//            return $response;
+//        } else {
+//            $this->setError($this->_codes[$code]);
+//            return null;
+//        }
     }
 
     public function prepareXml($data) {

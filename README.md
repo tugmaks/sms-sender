@@ -58,9 +58,9 @@ if(!$gate->someMethod()){
 ```
 
 Methods.
-TODO:
-* getBalance()
-* getSignatures()
+* ```php $gate->getBalance() ``` will return current balance (float) or false if error occured.
+* ```php $gate->getSignatures()  ``` return array of allowed signatures or false if error occured.  Example : ```php [0=>'signat1',1=>'loremsignat'] ```.
+* ```php $gategetSignatures()  ```
 * addSignature()
 * deleteSignature()
 * getArchive()
